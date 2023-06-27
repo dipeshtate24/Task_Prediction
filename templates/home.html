@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Task Prediction</title>
+    <style>
+        body
+        {
+            background-image: url({{url_for('static',filename ='2.jpg')}});
+            background-repeat: no-repeat;
+        }
+        form{
+            height: 300px;
+            width: 350px;
+            background-color: rgba(255, 255, 255, 0.13);
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top:50%;
+            left:50%;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 40px rgba(8,7,16,0.6);
+            padding: 50px 35px;
+       }
+       form h1{
+          font.size:2em;
+       }
+       form input{
+           display: block;
+           height: 50px;
+           width: 75%;
+           background: rgba(255,255,255,10);
+           border-radius: 5px;
+           padding: 0 10px;
+           margin - top: 30px;
+           font-size: 14px;
+           font-weight: 300;
+       }
+       :: placeholder{
+             color: white;
+       }
+       button{
+           margin-top: 0px;
+           width: 100px;
+           background: white;
+           color: #080710;
+           padding: 10px 0;
+           font-size : 12px;
+           font-weight: 300;
+           border-radius : 10px;
+           cursor: pointer;
+       }
+       button:hover{
+            background: #e5e5e5;
+       }
+       .login{
+       max-width: 1536px;
+       margin-left: auto;
+       margin-right: auto;
+       padding-left: 0.5rem;
+       padding-right: 0.5rem;
+       }
+
+       /* 2xl */
+       @media (max-width: 1536px) {
+       .login{
+        max-width: 1280px;
+       }
+       }
+
+      /* xl */
+      @media (max-width: 1280px) {
+      .login{
+      max-width: 1024px;
+      }
+      }
+
+      /* lg */
+     @media (max-width: 1024px) {
+     .login{
+     max-width: 768px;
+     }
+     }
+
+     /* md */
+     @media (max-width: 768px) {
+     .login {
+      max-width: 640px;
+     }
+     }
+
+     /* sm */
+     @media (max-width: 640px) {
+     .login{
+     max-width: 475px;
+     }
+     }
+
+     /* xs */
+     @media (max-width: 475px) {
+     .login {
+     width: 100%;
+     }
+     }
+    </style>
+
+</head>
+
+<body>
+    <div class = "login">
+        <center>
+         <h1 style="color : Black">Task Prediction</h1>
+         <form method ="POST" action="{{url_for('predict')}}">
+            <input style="margin:5px;" type="text" list="Course_type" name="Course" placeholder="Course" required><br>
+            <datalist id ="Course_type">
+                <option value = "">Choose one</option>
+                <option value="Full Stack Stack Developer">Full Stack Stack Developer</option>
+                <option value="Digital Marketing">Digital Marketing</option>
+            </datalist>
+            <input style="margin: 5px;" type="text" name="Task" placeholder="Task" required><br>
+            <input style="margin: 5px;" type="text" list="Completion_type" name="Completion" placeholder="Completion" required><br><p>
+            <datalist id ="Completion_type">
+                <option value = "">Choose one</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </datalist>
+            <button type="submit" class="btn btn-primary btn-block btn-large">Submit</button></p>
+        </form>
+        <br>
+        <br>
+        </center>
+    </div>
+</body>
+</html>
