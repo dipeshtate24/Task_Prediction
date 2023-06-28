@@ -122,8 +122,8 @@
             <input style="margin: 5px;" list="Task_number" type="text" name="Task_number" placeholder="Task" required><br>
             <datalist id="Task_number">
                 <option value = "">Choose task</option>
-                {% for i in range(1, max_task_number+1) %}
-                    <option value="{{i}}">{{task_number}}</option>
+                {% for index, row in task_description.iterrows() %}
+                    <option value="{{ row['Task Id'] }} - {{ row['Task Name'] }}">{{ row['Task Id'] }} - {{ row['Task Name'] }}</option>
                 {% endfor %}
             </datalist>
             <input style="margin: 5px;" type="text" list="Completion_type" name="Completion" placeholder="Completion" required><br><p>
