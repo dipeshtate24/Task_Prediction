@@ -115,14 +115,20 @@
          <form method ="POST" action="{{url_for('predict')}}">
             <input style="margin:5px;" type="text" list="Course_type" name="Course" placeholder="Course" required><br>
             <datalist id ="Course_type">
-                <option value = "">Choose one</option>
+                <option value = "">Choose Course</option>
                 <option value="Full Stack Stack Developer">Full Stack Stack Developer</option>
                 <option value="Digital Marketing">Digital Marketing</option>
             </datalist>
-            <input style="margin: 5px;" type="number" id="Task_number" name="Task_number" placeholder="Task" min="1" max="max_task_number" required><br>
+            <input style="margin: 5px;" list="Task_number" type="text" name="Task_number" placeholder="Task" required><br>
+            <datalist id="Task_number">
+                <option value = "">Choose task</option>
+                {% for i in range(1, max_task_number+1) %}
+                    <option value="{{i}}">{{task_number}}</option>
+                {% endfor %}
+            </datalist>
             <input style="margin: 5px;" type="text" list="Completion_type" name="Completion" placeholder="Completion" required><br><p>
             <datalist id ="Completion_type">
-                <option value = "">Choose one</option>
+                <option value = "">Choose Type</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
             </datalist>
