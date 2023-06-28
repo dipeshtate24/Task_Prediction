@@ -20,12 +20,14 @@ def get_description():
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    task_description = get_description()
+    max_task_number = task_description['Task Id'].max()
+    return render_template('home.html', max_task_number=max_task_number  )
 
-@app.route('/predict',methods = ['POST'])
+@app.route('/predict',methods=['POST'])
 def predict():
     course = request.form['Course']
-    int_task = int(request.form['Task'])
+    int_task = int(request.form['Task_number'])
     completion = request.form['Completion']
 
     int_course = 0
@@ -33,6 +35,7 @@ def predict():
         int_course = 1
     elif course == 'Digital Marketing':
         int_course = 2
+
 
     int_completion = 0
     if completion == 'Yes':
